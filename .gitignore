@@ -1,0 +1,13 @@
+.DS_Store
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+.claude/
+JawAtlas.xcodeproj/
+App/Seeds/DemoSeries/
+App/Seeds/DemoSeries.roi.json
+data/
+*.p8
+.appstoreconnect/
+Config/Signing.local.xcconfig
