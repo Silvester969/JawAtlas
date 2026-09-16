@@ -11,7 +11,9 @@ on:
 
 jobs:
   welcome:
-    if: github.event_name == 'issues' || (github.event_name == 'pull_request_target' && github.event.action == 'opened')
+    if: >-
+      (github.event_name == 'issues' && !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)) ||
+      (github.event_name == 'pull_request_target' && github.event.action == 'opened' && !contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.pull_request.author_association))
     runs-on: ubuntu-latest
     permissions:
       issues: write
