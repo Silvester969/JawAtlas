@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest an idea that would help people learn CBCT anatomy
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What learning or teaching problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: You are a...
+      options:
+        - Dental student
+        - Dental educator
+        - Radiologist or resident
+        - Researcher
+        - Developer
+        - Other
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Project rules
+      options:
+        - label: This idea works fully offline and needs no third-party dependencies
+          required: true
+        - label: This idea is for education, not diagnosis or treatment planning
+          required: true
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to help build this

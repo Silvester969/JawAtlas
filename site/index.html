@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JawAtlas: free offline CBCT study app for dental students</title>
+<meta name="description" content="JawAtlas is a free, offline, open-source iPhone and iPad app that turns a dental CBCT scan into an interactive 3D study companion: tri-planar MPR, panoramic reconstruction and AR slice-through.">
+<meta property="og:title" content="JawAtlas: learn CBCT anatomy in 3D">
+<meta property="og:description" content="Free, offline, open-source CBCT study companion for dental students and educators. iPhone and iPad.">
+<meta property="og:image" content="https://silvester969.github.io/JawAtlas/img/social-preview.png">
+<meta property="og:url" content="https://silvester969.github.io/JawAtlas/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="apple-itunes-app" content="app-id=6807482134">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"JawAtlas","operatingSystem":"iOS 18+, iPadOS 18+","applicationCategory":"EducationalApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apps.apple.com/app/id6807482134","license":"https://www.apache.org/licenses/LICENSE-2.0","codeRepository":"https://github.com/Silvester969/JawAtlas"}
+</script>
+<style>
+:root{--bg:#f6f7f9;--surface:#fff;--text:#0f1720;--muted:#56657a;--accent:#1464a5;--accent-ink:#fff;--line:#e2e7ee;--hero:linear-gradient(135deg,#0b1f33 0%,#0f3a5f 60%,#1464a5 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1118;--surface:#131b25;--text:#e8eef5;--muted:#9aabbf;--accent:#4c9be0;--accent-ink:#06121e;--line:#223040}}
+:root[data-theme="dark"]{--bg:#0b1118;--surface:#131b25;--text:#e8eef5;--muted:#9aabbf;--accent:#4c9be0;--accent-ink:#06121e;--line:#223040}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.hero{background:var(--hero);color:#fff;padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.brand{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.brand img{width:72px;height:72px;border-radius:17px}
+.brand span{font-size:40px;font-weight:800;letter-spacing:-.5px}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.1;letter-spacing:-.8px;margin-bottom:16px}
+.lede{font-size:20px;color:#d6e6f5;max-width:34ch;margin-bottom:28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 20px;border-radius:12px;font-weight:650;text-decoration:none}
+.btn.primary{background:#fff;color:#0b1f33}
+.btn.ghost{border:1px solid rgba(255,255,255,.4);color:#fff}
+.hero-media{justify-self:center}
+.hero-media img{width:min(300px,70vw);border-radius:28px;border:5px solid #0a0a0a;box-shadow:0 20px 50px rgba(0,0,0,.45);display:block}
+.badges{margin-top:20px;font-size:14px;color:#9fc0de}
+section{padding:64px 0}
+h2{font-size:30px;letter-spacing:-.4px;margin-bottom:12px}
+.sub{color:var(--muted);max-width:60ch;margin-bottom:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15.5px}
+.shots{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{height:420px;border-radius:20px;border:1px solid var(--line);scroll-snap-align:start;flex:none}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:18px 20px;color:var(--muted)}
+code{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.92em}
+pre{background:#0b1118;color:#e8eef5;border-radius:12px;padding:16px;overflow-x:auto;font-size:14px}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+@media (max-width:760px){.hero .wrap,.split{grid-template-columns:minmax(0,1fr)}.shots img{height:340px}header.hero{padding:40px 0 48px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brand"><img src="icon.png" alt=""><span>JawAtlas</span></div>
+      <h1>Learn CBCT anatomy in 3D, on the phone you already carry.</h1>
+      <p class="lede">A free, fully offline study companion for dental students, educators and researchers. Open source.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://apps.apple.com/app/id6807482134">Download on the App Store</a>
+        <a class="btn ghost" href="https://github.com/Silvester969/JawAtlas">View on GitHub</a>
+      </div>
+      <p class="badges">Free · No accounts · No tracking · iPhone &amp; iPad · iOS 18+ · Apache-2.0</p>
+    </div>
+    <div class="hero-media"><img src="img/demo.gif" alt="JawAtlas demo: rotating a 3D jaw, moving through MPR slices and building a panoramic view" loading="eager"></div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="sub">A handful of things done to a professional standard, instead of everything at once.</p>
+    <div class="grid">
+      <div class="card"><h3>Tri-planar MPR</h3><p>Axial, coronal and sagittal panes linked through one crosshair, with colored scout lines and correct radiological orientation labels, even on oblique cuts.</p></div>
+      <div class="card"><h3>Panoramic reconstruction</h3><p>Trace the dental arch yourself and the GPU builds the panoramic view. Drag the scout line to drive a perpendicular cross-section.</p></div>
+      <div class="card"><h3>3D volume rendering</h3><p>Metal ray marching with Bone, Teeth and Soft tissue presets, shading, and a MIP mode that reads like a radiograph.</p></div>
+      <div class="card"><h3>AR slice-through</h3><p>Anchor the scan life-size on a table and move your device through the anatomy. The cross-section follows the phone.</p></div>
+      <div class="card"><h3>Built for learning</h3><p>Labeled Move, Adjust, Measure and Angle modes, a first-open explainer, and honest grey values instead of pretend Hounsfield units.</p></div>
+      <div class="card"><h3>Cases that teach</h3><p>Mark structures, caption them as moments, replay them like slides, share cases over AirDrop and export a PDF summary.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Screenshots</h2>
+    <div class="shots">
+      <img src="img/iphone-3-3d.png" alt="3D volume rendering" loading="lazy">
+      <img src="img/iphone-5-mpr.png" alt="Axial MPR slice with crosshair" loading="lazy">
+      <img src="img/iphone-6-pano.png" alt="Panoramic reconstruction with cross-section" loading="lazy">
+      <img src="img/iphone-4-mpr-explainer.png" alt="MPR explainer card" loading="lazy">
+      <img src="img/ipad-3-mpr-grid.png" alt="iPad 2x2 MPR grid" loading="lazy">
+      <img src="img/iphone-7-slice.png" alt="Single slice view" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap split">
+    <div class="card">
+      <h2>For educators</h2>
+      <p class="sub" style="margin-bottom:16px">The most valuable contribution is an annotated teaching case, and it needs no code. Pick an openly licensed scan, mark the structures, caption them, and share the case with your class.</p>
+      <a class="btn primary" style="background:var(--accent);color:var(--accent-ink)" href="https://github.com/Silvester969/JawAtlas/issues/new?template=teaching_case.yml">Propose a teaching case</a>
+    </div>
+    <div class="card">
+      <h2>For developers</h2>
+      <p class="sub" style="margin-bottom:16px">Swift 6, SwiftUI and Metal with zero dependencies: a from-scratch DICOM parser, JPEG Lossless decoder, hardened ZIP reader and around 160 tests.</p>
+<pre>git clone https://github.com/Silvester969/JawAtlas.git
+cd JawAtlas
+python3 scripts/fetch-demo-scan.py
+scripts/generate.sh && open JawAtlas.xcodeproj</pre>
+      <p style="margin-top:14px"><a href="https://github.com/Silvester969/JawAtlas/labels/good%20first%20issue">Good first issues</a> · <a href="https://github.com/Silvester969/JawAtlas/blob/main/CONTRIBUTING.md">Contributing guide</a></p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Private by construction</h2>
+    <p class="sub">No accounts, no analytics and no networking code at all, enforced by an audit script. The DICOM importer reads only a whitelist of technical tags, so patient identifiers never reach app storage.</p>
+    <div class="note">JawAtlas is an education and training aid. It is not a medical device and must not be used for diagnosis, treatment planning or any clinical decision.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Silvester Cekodhima · Code under Apache-2.0 · Demo scan: Feng et al., Science Data Bank, <a href="https://doi.org/10.57760/sciencedb.26465">CC BY 4.0</a></span>
+    <span><a href="https://github.com/Silvester969/JawAtlas">GitHub</a> · <a href="https://jawatlas-privacy.vercel.app">Privacy</a> · <a href="mailto:jawatlas@icloud.com">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use JawAtlas in teaching or research, please cite it as below."
+title: "JawAtlas: a free, offline CBCT study companion for dental education"
+type: software
+authors:
+  - family-names: Cekodhima
+    given-names: Silvester
+version: 1.0.0
+date-released: 2026-09-10
+license: Apache-2.0
+repository-code: "https://github.com/Silvester969/JawAtlas"
+url: "https://silvester969.github.io/JawAtlas/"
+abstract: >-
+  JawAtlas is a free, fully offline iOS and iPadOS application that turns a
+  dental cone beam CT scan into an interactive study companion, with
+  tri-planar MPR following radiological conventions, a user-traced panoramic
+  reconstruction, Metal ray-marched volume rendering, and an augmented
+  reality slice-through mode. It is an education and training aid, not a
+  medical device.
+keywords:
+  - CBCT
+  - dental education
+  - radiology
+  - DICOM
+  - medical imaging
+  - augmented reality
+  - iOS
+  - Metal

@@ -1,0 +1,76 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to release
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.gh.outputs.url }}
+      tag: ${{ steps.tag.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - id: tag
+        run: echo "tag=${INPUT_TAG:-$GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+      - id: gh
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: JawAtlas ${{ steps.tag.outputs.tag }}
+          generate_release_notes: true
+          body: |
+            **Download:** [JawAtlas on the App Store](https://apps.apple.com/app/id6807482134) · free, offline, no accounts.
+
+            JawAtlas is an education and training aid. It is not a medical device.
+
+  announce:
+    needs: release
+    runs-on: ubuntu-latest
+    env:
+      MASTODON_URL: ${{ secrets.MASTODON_URL }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+      BLUESKY_ID: ${{ secrets.BLUESKY_IDENTIFIER }}
+      BLUESKY_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MESSAGE: |
+        JawAtlas ${{ needs.release.outputs.tag }} is out: a free, offline CBCT study companion for dental students on iPhone and iPad. 3D, MPR, panoramic and AR slice-through. Open source (Apache-2.0).
+
+        What's new: ${{ needs.release.outputs.url }}
+        App Store: https://apps.apple.com/app/id6807482134
+
+        #DentalEducation #iOSDev #OpenSource #Swift
+    steps:
+      - uses: actions/checkout@v7
+      - name: Post to Mastodon
+        if: env.MASTODON_URL != '' && env.MASTODON_TOKEN != ''
+        uses: cbrgm/mastodon-github-action@v2
+        with:
+          url: ${{ env.MASTODON_URL }}
+          access-token: ${{ env.MASTODON_TOKEN }}
+          message: ${{ env.MESSAGE }}
+          visibility: public
+      - name: Post to Bluesky
+        if: env.BLUESKY_ID != '' && env.BLUESKY_PASSWORD != ''
+        uses: myConsciousness/bluesky-post@v6
+        with:
+          identifier: ${{ env.BLUESKY_ID }}
+          password: ${{ env.BLUESKY_PASSWORD }}
+          text: |
+            JawAtlas ${{ needs.release.outputs.tag }} is out: free, offline CBCT study app for dental students (iPhone/iPad). Open source.
+            ${{ needs.release.outputs.url }}
+      - name: Social posting skipped
+        if: env.MASTODON_TOKEN == '' && env.BLUESKY_PASSWORD == ''
+        run: echo "No Mastodon or Bluesky secrets configured; skipping announcements."

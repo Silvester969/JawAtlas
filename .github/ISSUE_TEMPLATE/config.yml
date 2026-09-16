@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/Silvester969/JawAtlas/discussions
+    about: Ask how something works or share what you built
+  - name: Security vulnerability
+    url: https://github.com/Silvester969/JawAtlas/security/advisories/new
+    about: Report security issues privately
+  - name: Download on the App Store
+    url: https://apps.apple.com/app/id6807482134
+    about: Get JawAtlas for iPhone and iPad

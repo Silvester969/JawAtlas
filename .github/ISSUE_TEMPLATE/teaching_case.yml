@@ -1,0 +1,40 @@
+name: Teaching case proposal
+description: Propose an annotated teaching case (no coding required)
+labels: ["teaching-case", "educator"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Teaching cases are the most valuable contribution JawAtlas can receive. Only openly licensed, fully de-identified scans can be used. Never share scans of your own patients.
+  - type: input
+    id: topic
+    attributes:
+      label: What should the case teach?
+      placeholder: Mandibular canal course and its relation to the third molar
+    validations:
+      required: true
+  - type: textarea
+    id: dataset
+    attributes:
+      label: Source scan
+      description: Dataset name, link or DOI, and license (CC BY, CC0, ...).
+    validations:
+      required: true
+  - type: textarea
+    id: moments
+    attributes:
+      label: Planned moments
+      description: A short list of the views and structures you would mark, with a caption idea for each.
+  - type: dropdown
+    id: level
+    attributes:
+      label: Audience level
+      options:
+        - Pre-clinical students
+        - Clinical students
+        - Postgraduate / residents
+        - Mixed
+  - type: input
+    id: credit
+    attributes:
+      label: How should we credit you?

@@ -1,0 +1,56 @@
+name: Bug report
+description: Something in JawAtlas does not work as expected
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please never attach real patient scans or screenshots that show patient information.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the demo case
+        2. Switch to MPR
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: source
+    attributes:
+      label: How are you running JawAtlas?
+      options:
+        - App Store build
+        - Built from source (device)
+        - Built from source (simulator)
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and iOS version
+      placeholder: iPhone 16 Pro, iOS 26.0
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: JawAtlas version
+      placeholder: "1.0.0"
+  - type: textarea
+    id: data
+    attributes:
+      label: Scan details (if import related)
+      description: Scanner vendor, transfer syntax, number of files. No identifiers, please.
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or recording

@@ -6,6 +6,14 @@ A free, fully offline CBCT viewer for dental students, educators and researchers
 ![Swift](https://img.shields.io/badge/Swift-6.0-orange)
 ![License](https://img.shields.io/badge/license-Apache--2.0-green)
 ![Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen)
+[![CI](https://github.com/Silvester969/JawAtlas/actions/workflows/ci.yml/badge.svg)](https://github.com/Silvester969/JawAtlas/actions/workflows/ci.yml)
+[![App Store](https://img.shields.io/badge/App_Store-free-0D96F6?logo=apple&logoColor=white)](https://apps.apple.com/app/id6807482134)
+
+**[Download on the App Store](https://apps.apple.com/app/id6807482134)** · **[Website](https://silvester969.github.io/JawAtlas/)** · **[Contribute](CONTRIBUTING.md)** · **[Discussions](https://github.com/Silvester969/JawAtlas/discussions)**
+
+<p align="center">
+  <img src="docs/media/demo.gif" width="300" alt="Demo: rotating the 3D jaw, moving through MPR slices and building a panoramic reconstruction">
+</p>
 
 <p align="center">
   <img src="docs/appstore/screenshots/iphone-3-3d.png" width="260" alt="3D volume rendering of a jaw">
@@ -93,9 +101,15 @@ The bundled demo case comes from the openly licensed dataset "Adults' dental con
 
 ## Contributing
 
-Issues and pull requests are welcome. Good first areas: additional openly licensed teaching cases, a quiz mode over labeled moments, thick-slab MIP in the MPR panes, and NIfTI import for researchers. Before opening a PR, please run the test suite and `scripts/audit.sh`, and keep the two hard rules: no third-party dependencies, and no networking code of any kind.
+Issues and pull requests are welcome, and you do not need to write Swift to help. Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, the house rules (no third-party dependencies, no networking code, no comments in Swift sources) and the review flow.
 
-If you are a dental educator interested in authoring annotated teaching cases, that is the single most valuable contribution this project can receive, and it requires no Swift at all. Open an issue and say hello.
+- **Educators:** annotated teaching cases are the single most valuable contribution this project can receive. [Propose a teaching case](https://github.com/Silvester969/JawAtlas/issues/new?template=teaching_case.yml).
+- **Developers:** start with a [good first issue](https://github.com/Silvester969/JawAtlas/labels/good%20first%20issue). Good areas include a quiz mode over labeled moments, thick-slab MIP in the MPR panes, and NIfTI import for researchers.
+- **Everyone:** questions and ideas go to [Discussions](https://github.com/Silvester969/JawAtlas/discussions). Please follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Citing
+
+If you use JawAtlas in teaching or research, please cite it using the "Cite this repository" button on GitHub, which reads [CITATION.cff](CITATION.cff).
 
 ## License
 

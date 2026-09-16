@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Audit gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: No comments, no networking code
+        run: bash scripts/audit.sh
+
+  build-test:
+    name: Build and test
+    runs-on: macos-26
+    needs: audit
+    timeout-minutes: 60
+    env:
+      JAWATLAS_DESTINATION: platform=iOS Simulator,name=iPhone 17 Pro,OS=latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install xcodegen
+        run: brew install xcodegen
+      - name: Restore demo scan
+        id: seed
+        uses: actions/cache@v6
+        with:
+          path: |
+            App/Seeds/DemoSeries
+            App/Seeds/DemoSeries.roi.json
+          key: demo-seed-${{ hashFiles('scripts/fetch-demo-scan.py') }}
+      - name: Fetch demo scan
+        if: steps.seed.outputs.cache-hit != 'true'
+        run: python3 scripts/fetch-demo-scan.py
+      - name: Generate project
+        run: scripts/generate.sh
+      - name: Build and test
+        run: scripts/test.sh

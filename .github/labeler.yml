@@ -1,0 +1,28 @@
+rendering:
+  - changed-files:
+      - any-glob-to-any-file: App/Sources/Rendering/**
+ar:
+  - changed-files:
+      - any-glob-to-any-file: App/Sources/AR/**
+dicom:
+  - changed-files:
+      - any-glob-to-any-file: JawAtlasCore/**
+ui:
+  - changed-files:
+      - any-glob-to-any-file:
+          - App/Sources/Screens/**
+          - App/Sources/Theme/**
+tests:
+  - changed-files:
+      - any-glob-to-any-file: Tests/**
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.md"
+          - site/**
+          - paper/**
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+          - scripts/**

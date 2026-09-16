@@ -1,0 +1,19 @@
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+  categories:
+    - title: New features
+      labels: [enhancement]
+    - title: Teaching content
+      labels: [teaching-case]
+    - title: Fixes
+      labels: [bug]
+    - title: Rendering and AR
+      labels: [rendering, ar]
+    - title: DICOM and import
+      labels: [dicom]
+    - title: Documentation
+      labels: [documentation]
+    - title: Other changes
+      labels: ["*"]

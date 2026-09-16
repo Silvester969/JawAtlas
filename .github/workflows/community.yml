@@ -1,0 +1,56 @@
+name: Community
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "30 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  welcome:
+    if: github.event_name == 'issues' || (github.event_name == 'pull_request_target' && github.event.action == 'opened')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/first-interaction@v3
+        with:
+          issue_message: |
+            Thanks for opening your first issue on JawAtlas! A maintainer will reply within a few days.
+            If this is about a scan, please make sure nothing in it can identify a patient.
+            While you wait, [CONTRIBUTING.md](https://github.com/Silvester969/JawAtlas/blob/main/CONTRIBUTING.md) explains how the project works.
+          pr_message: |
+            Thanks for your first pull request to JawAtlas! 🎉
+            Before review, please make sure `scripts/audit.sh` and `scripts/test.sh` pass and the checklist in the template is filled in.
+            A maintainer will review it within a few days.
+
+  label:
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/labeler@v7
+
+  stale:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/stale@v11
+        with:
+          days-before-stale: 60
+          days-before-close: 14
+          stale-issue-label: stale
+          stale-pr-label: stale
+          exempt-issue-labels: "good first issue,help wanted,teaching-case,pinned,security"
+          exempt-pr-labels: "pinned,security"
+          stale-issue-message: "This issue has been quiet for 60 days. It will close in 14 days unless there is new activity. Comment to keep it open."
+          stale-pr-message: "This pull request has been quiet for 60 days. It will close in 14 days unless there is new activity."
