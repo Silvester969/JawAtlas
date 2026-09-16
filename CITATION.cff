@@ -8,6 +8,11 @@ authors:
 version: 1.0.1
 date-released: 2026-09-16
 license: Apache-2.0
+doi: 10.5281/zenodo.22797194
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22797194
+    description: Concept DOI for all versions, archived on Zenodo
 repository-code: "https://github.com/Silvester969/JawAtlas"
 url: "https://silvester969.github.io/JawAtlas/"
 abstract: >-
