@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: Cekodhima
     given-names: Silvester
-version: 1.0.0
-date-released: 2026-09-10
+version: 1.0.1
+date-released: 2026-09-16
 license: Apache-2.0
 repository-code: "https://github.com/Silvester969/JawAtlas"
 url: "https://silvester969.github.io/JawAtlas/"
